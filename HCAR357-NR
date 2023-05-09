@@ -1,1 +1,21 @@
-
+model: HCAR357-NR
+###
+step1
+readlink -f /sys/class/hwmon/hwmon?/device
+/sys/devices/virtual/thermal/thermal_zone0
+/sys/devices/pci0000:00/0000:00:01.1/0000:01:00.0/nvme/nvme0
+/sys/devices/pci0000:00/0000:00:18.3
+/sys/devices/platform/it87.2608
+/sys/devices/pci0000:00/0000:00:08.1/0000:06:00.0
+###
+step2
+cat /etc/fancontrol 
+INTERVAL=10
+FCTEMPS=/sys/devices/platform/it87.2608/hwmon/hwmon3/pwm2=/sys/devices/platform/it87.2608/hwmon/hwmon3/temp2_input
+FCFANS=/sys/devices/platform/it87.2608/hwmon/hwmon3/pwm2=/sys/devices/platform/it87.2608/hwmon/hwmon3/fan2_input
+MINTEMP=/sys/devices/platform/it87.2608/hwmon/hwmon3/pwm2/pwm2=40
+MAXTEMP=/sys/devices/platform/it87.2608/hwmon/hwmon3/pwm2/pwm2=70
+MINSTART=/sys/devices/platform/it87.2608/hwmon/hwmon3/pwm2/pwm2=150
+MINSTOP=/sys/devices/platform/it87.2608/hwmon/hwmon3/pwm2/pwm2=20
+MAXPWM=/sys/devices/platform/it87.2608/hwmon/hwmon3/pwm2/pwm2=255
+MINPWM=/sys/devices/platform/it87.2608/hwmon/hwmon3/pwm2/pwm2=11
